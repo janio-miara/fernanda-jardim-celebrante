@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fernanda Jardim — Celebrante de Casamentos e Eventos</title>
+<meta name="description" content="Cerimônias personalizadas, escritas e narradas por Fernanda Jardim. Casamentos, formaturas, homenagens e congressos em Santa Catarina e região.">
+<meta name="theme-color" content="#6c796b">
+<link rel="icon" href="assets/img/logo-mark.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/logo-mark.png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Fernanda Jardim — Celebrante de Casamentos e Eventos">
+<meta property="og:description" content="Cerimônias personalizadas, escritas e narradas. Casamentos, formaturas, homenagens e congressos em Santa Catarina e região.">
+<meta property="og:image" content="assets/img/hero-couple.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/img/hero-couple.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  /* ============================================================
+     DESIGN TOKENS
+     ============================================================ */
+  :root{
+    /* verdes da marca, agora numa escala completa e coerente */
+    --olive-900:#2f3a2d;
+    --olive-800:#3d4a3a;
+    --olive-700:#4e5c4b;
+    --olive-600:#5e6c5c;
+    --olive:#6c796b;
+    --sage:#869484;
+    --sage-400:#a5afaa;
+    --sage-200:#c9d1c6;
+    --sage-100:#e4e8e0;
+    /* neutros quentes — substituem o cinza frio #cacaca */
+    --taupe:#96887e;
+    --sand:#ded7cb;
+    --cream:#f6f8f3;
+    --ivory:#fcfbf8;
+    --white:#ffffff;
+    --line:#e7e8e1;
+    /* texto */
+    --ink:#2e332c;
+    --body:#575c54;
+    --muted:#7d8279;
+    --danger:#a94f45;
+    /* elevação */
+    --sh-sm:0 2px 10px rgba(47,58,45,.06);
+    --sh-md:0 18px 44px -22px rgba(47,58,45,.32);
+    --sh-lg:0 44px 84px -44px rgba(47,58,45,.5);
+    /* raios */
+    --r-xs:3px;
+    --r-sm:6px;
+    --r-md:12px;
+    --r-lg:20px;
+    --r-full:999px;
+    /* ritmo */
+    --sp-section:clamp(76px, 9vw, 132px);
+    --gutter:clamp(20px, 5vw, 40px);
+    --header-h:84px;
+    /* tipografia fluida */
+    --fs-display:clamp(2.6rem, 7.2vw, 4.9rem);
+    --fs-h2:clamp(1.95rem, 4.4vw, 3rem);
+    --fs-h3:clamp(1rem, 1.6vw, 1.12rem);
+    --fs-lead:clamp(1rem, 1.4vw, 1.1rem);
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+
+  /* ============================================================
+     BASE
+     ============================================================ */
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px);-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Jost', system-ui, sans-serif;
+    color:var(--body);
+    background:var(--white);
+    font-weight:300;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;height:auto;display:block;}
+  a{text-decoration:none;color:inherit;}
+  button{font:inherit;color:inherit;}
+  ::selection{background:var(--sage-200);color:var(--olive-900);}
+
+  .container{width:100%;max-width:1180px;margin:0 auto;padding-inline:var(--gutter);}
+  .container-narrow{max-width:880px;}
+
+  h1,h2,h3{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-weight:500;
+    color:var(--ink);
+    letter-spacing:0.005em;
+    line-height:1.12;
+    text-wrap:balance;
+  }
+  p{text-wrap:pretty;}
+  em, .italic{font-style:italic;font-weight:500;}
+
+  .eyebrow{
+    display:block;
+    font-family:'Jost',sans-serif;
+    font-weight:500;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    font-size:0.7rem;
+    color:var(--olive-600);
+  }
+
+  /* foco visível e consistente (acessibilidade) */
+  :where(a,button,summary,[tabindex]):focus-visible{
+    outline:2px solid var(--olive);
+    outline-offset:3px;
+    border-radius:var(--r-xs);
+  }
+  .hero :focus-visible,
+  header:not(.scrolled):not(.nav-open) :focus-visible,
+  .contato :focus-visible,
+  .cta-image :focus-visible,
+  footer :focus-visible,
+  .testimonial-wrap :focus-visible{outline-color:#fff;}
+
+  .skip-link{
+    position:absolute;left:50%;top:8px;transform:translate(-50%,-160%);
+    background:var(--white);color:var(--olive-700);
+    padding:12px 22px;border-radius:var(--r-full);z-index:500;
+    font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;
+    box-shadow:var(--sh-md);transition:transform .3s var(--ease);
+  }
+  .skip-link:focus{transform:translate(-50%,0);}
+
+  /* ============================================================
+     BOTÕES
+     ============================================================ */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:16px 34px;
+    border-radius:var(--r-full);
+    font-family:'Jost',sans-serif;
+    font-size:0.79rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    font-weight:500;
+    line-height:1;
+    transition:background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+    border:1px solid transparent;
+    cursor:pointer;
+    text-align:center;
+  }
+  .btn:active{transform:translateY(0) scale(.985);}
+  .btn-light{background:var(--white);color:var(--olive-700);box-shadow:var(--sh-sm);}
+  .btn-light:hover{background:var(--cream);transform:translateY(-3px);box-shadow:var(--sh-md);}
+  .btn-outline{border-color:rgba(255,255,255,.55);color:#fff;backdrop-filter:blur(2px);}
+  .btn-outline:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-3px);}
+  .btn-sage{background:var(--olive);color:#fff;}
+  .btn-sage:hover{background:var(--olive-700);transform:translateY(-3px);box-shadow:var(--sh-md);}
+  .btn-ghost{border-color:var(--sage-200);color:var(--olive-700);background:transparent;}
+  .btn-ghost:hover{border-color:var(--olive);background:var(--cream);transform:translateY(-3px);}
+  .btn-block{width:100%;}
+
+  /* ============================================================
+     REVELAÇÃO AO ROLAR (degrada bem sem JS)
+     ============================================================ */
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .js .reveal.is-visible{opacity:1;transform:none;}
+
+  /* ============================================================
+     HEADER
+     ============================================================ */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    transition:background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  header::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg, rgba(30,38,28,.42), rgba(30,38,28,0));
+    height:150%;opacity:1;transition:opacity .4s var(--ease);
+  }
+  header.scrolled, header.nav-open{
+    background:rgba(252,251,248,.94);
+    -webkit-backdrop-filter:blur(14px);
+    backdrop-filter:blur(14px);
+    padding:9px 0;
+    box-shadow:0 1px 0 var(--line), 0 8px 28px rgba(47,58,45,.07);
+  }
+  header.scrolled::before, header.nav-open::before{opacity:0;}
+  header .container{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;}
+
+  .logo-mark{display:flex;align-items:center;gap:13px;min-width:0;}
+  .logo-chip{
+    width:46px;height:46px;border-radius:50%;background:#fff;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    box-shadow:0 4px 16px rgba(30,38,28,.2);padding:7px;
+    transition:transform .4s var(--ease);
+  }
+  .logo-mark:hover .logo-chip{transform:rotate(-6deg) scale(1.04);}
+  .logo-chip img{width:100%;height:100%;object-fit:contain;}
+  .logo-text{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.3rem;letter-spacing:0.045em;color:#fff;
+    transition:color .4s var(--ease);line-height:1.08;white-space:nowrap;
+  }
+  .logo-text span{
+    display:block;font-family:'Jost',sans-serif;font-size:0.53rem;
+    letter-spacing:0.4em;text-transform:uppercase;font-weight:400;
+    color:rgba(255,255,255,.85);transition:color .4s var(--ease);
+  }
+  header.scrolled .logo-text, header.nav-open .logo-text{color:var(--olive-700);}
+  header.scrolled .logo-text span, header.nav-open .logo-text span{color:var(--sage);}
+
+  nav ul{list-style:none;display:flex;align-items:center;gap:clamp(18px,2.4vw,32px);}
+  nav a{
+    display:inline-block;
+    font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;
+    color:#fff;font-weight:400;position:relative;padding-bottom:5px;
+    transition:color .3s var(--ease), opacity .3s var(--ease);
+  }
+  nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:currentColor;transition:width .35s var(--ease);}
+  nav a:hover::after, nav a:focus-visible::after{width:100%;}
+  header.scrolled nav a, header.nav-open nav a{color:var(--ink);}
+
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-cta .btn{padding:12px 24px;font-size:0.7rem;}
+
+  .burger{
+    display:none;width:44px;height:44px;align-items:center;justify-content:center;
+    flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;flex-shrink:0;
+  }
+  .burger span{width:23px;height:1.5px;background:#fff;border-radius:2px;transition:transform .35s var(--ease), opacity .25s var(--ease), background .4s var(--ease);}
+  header.scrolled .burger span, header.nav-open .burger span{background:var(--olive-700);}
+  header.nav-open .burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  header.nav-open .burger span:nth-child(2){opacity:0;transform:scaleX(0);}
+  header.nav-open .burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;align-items:flex-end;
+    background:#3a423a url('assets/img/hero-couple.jpg') center 22% / cover no-repeat;
+    isolation:isolate;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;z-index:1;
+    background:
+      linear-gradient(180deg, rgba(38,46,36,.30) 0%, rgba(38,46,36,0) 26%),
+      linear-gradient(180deg, rgba(38,46,36,0) 42%, rgba(38,46,36,.55) 74%, rgba(30,37,29,.9) 100%),
+      linear-gradient(90deg, rgba(38,46,36,.42) 0%, rgba(38,46,36,0) 58%);
+  }
+  .hero-inner{position:relative;z-index:2;width:100%;padding-block:calc(var(--header-h) + 32px) clamp(96px,13vh,128px);}
+  .hero-eyebrow{
+    color:rgba(255,255,255,.88);font-family:'Jost',sans-serif;
+    letter-spacing:0.28em;text-transform:uppercase;font-size:0.72rem;margin-bottom:22px;
+  }
+  .hero h1{
+    color:#fff;font-size:var(--fs-display);line-height:1.04;font-weight:400;
+    margin-bottom:26px;max-width:13ch;
+    text-shadow:0 2px 30px rgba(25,32,24,.35);
+  }
+  .hero h1 em{color:#fff;}
+  .hero-divider{width:88px;height:1px;background:rgba(255,255,255,.6);margin:0 0 24px;position:relative;}
+  .hero-divider::after{content:'✦';position:absolute;right:-7px;top:-9px;color:#fff;font-size:0.68rem;}
+  .hero-handle{
+    color:rgba(255,255,255,.94);font-size:var(--fs-lead);letter-spacing:0.01em;
+    margin-bottom:38px;max-width:44ch;line-height:1.65;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .scroll-cue{
+    position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+    color:rgba(255,255,255,.8);font-size:0.62rem;letter-spacing:0.26em;text-transform:uppercase;
+    display:flex;flex-direction:column;align-items:center;gap:9px;z-index:2;pointer-events:none;
+  }
+  .scroll-cue .line{width:1px;height:34px;background:rgba(255,255,255,.6);animation:scrollDown 2.2s infinite;}
+  @keyframes scrollDown{
+    0%{transform:scaleY(0);transform-origin:top;}
+    50%{transform:scaleY(1);transform-origin:top;}
+    51%{transform-origin:bottom;}
+    100%{transform:scaleY(0);transform-origin:bottom;}
+  }
+
+  /* ============================================================
+     SEÇÕES — RITMO GERAL
+     ============================================================ */
+  section{padding-block:var(--sp-section);}
+  .section-cream{background:var(--cream);}
+  .section-head{margin-bottom:clamp(40px,5vw,60px);max-width:620px;}
+  .section-head .line{width:64px;height:1px;background:var(--taupe);margin-bottom:20px;}
+  .section-head .eyebrow{margin-bottom:12px;}
+  .section-head h2{font-size:var(--fs-h2);font-weight:400;}
+  .section-head.center{text-align:center;margin-inline:auto;}
+  .section-head.center .line{margin-inline:auto;}
+  .section-head.right{text-align:right;margin-left:auto;}
+  .section-head.right .line{margin-left:auto;}
+
+  /* ============================================================
+     SOBRE
+     ============================================================ */
+  .sobre{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(36px,6vw,74px);align-items:center;}
+  .sobre-photo{position:relative;padding:22px 0 0 22px;}
+  .sobre-photo img{
+    border-radius:var(--r-sm);box-shadow:var(--sh-lg);position:relative;z-index:1;
+    width:100%;height:auto;aspect-ratio:4 / 5;object-fit:cover;object-position:center 22%;
+  }
+  .sobre-photo::before{
+    content:'';position:absolute;top:0;left:0;width:62%;height:62%;
+    border:1px solid var(--sage-400);border-radius:var(--r-sm);z-index:0;
+  }
+  .sobre-eyebrow{
+    font-family:'Jost',sans-serif;letter-spacing:0.28em;text-transform:uppercase;
+    font-size:0.72rem;color:var(--muted);margin-bottom:12px;
+  }
+  .sobre h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:24px;}
+  .sobre p{font-size:var(--fs-lead);line-height:1.85;color:var(--body);max-width:52ch;}
+  .sobre .signature{
+    margin-top:32px;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:1.55rem;color:var(--olive);
+  }
+
+  /* ============================================================
+     EVENTOS — cartões editoriais
+     ============================================================ */
+  .eventos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px);}
+  .evento-card{
+    --accent:var(--olive);
+    position:relative;background:var(--ivory);border:1px solid var(--line);
+    border-radius:var(--r-sm);padding:clamp(28px,3vw,38px) clamp(22px,2.4vw,30px);
+    display:flex;flex-direction:column;gap:14px;overflow:hidden;
+    transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+  }
+  .evento-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);
+    transform:scaleX(.22);transform-origin:left;transition:transform .5s var(--ease);
+  }
+  .evento-card:hover{transform:translateY(-8px);box-shadow:var(--sh-md);border-color:var(--sage-200);}
+  .evento-card:hover::before{transform:scaleX(1);}
+  .evento-card .num{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.3rem;
+    line-height:1;color:var(--accent);opacity:.85;
+  }
+  .evento-card h3{
+    font-family:'Jost',sans-serif;font-weight:600;letter-spacing:0.1em;
+    font-size:0.86rem;text-transform:uppercase;color:var(--olive-700);
+  }
+  .evento-card p{font-size:0.95rem;line-height:1.75;color:var(--body);}
+  .c1{--accent:var(--olive-700);}
+  .c2{--accent:var(--olive);}
+  .c3{--accent:var(--sage);}
+  .c4{--accent:var(--taupe);}
+
+  /* ============================================================
+     CITAÇÃO
+     ============================================================ */
+  .quote-section{border-block:1px solid var(--line);}
+  .quote-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,5vw,64px);align-items:center;}
+  .quote-mark{
+    font-family:'Cormorant Garamond',serif;font-size:5.5rem;color:var(--sand);
+    line-height:.6;font-style:italic;margin-bottom:18px;display:block;
+  }
+  .quote-text{
+    border-left:1px solid var(--sand);padding-left:clamp(22px,3vw,38px);
+    font-size:clamp(1.08rem,1.7vw,1.28rem);line-height:1.8;color:var(--ink);font-weight:300;
+  }
+  .quote-text b{font-weight:500;color:var(--olive-700);}
+  .quote-side .section-head{margin-bottom:0;}
+
+  /* ============================================================
+     PASSO A PASSO — linha do tempo
+     ============================================================ */
+  .steps{list-style:none;position:relative;max-width:760px;}
+  .steps::before{
+    content:'';position:absolute;left:27px;top:26px;bottom:26px;width:1px;
+    background:linear-gradient(180deg,var(--sage-200),var(--sand));
+  }
+  .step{
+    display:grid;grid-template-columns:56px 1fr;gap:clamp(20px,3vw,32px);
+    align-items:start;padding-block:clamp(18px,2.4vw,26px);position:relative;
+  }
+  .step .icon{
+    width:56px;height:56px;border-radius:50%;background:var(--olive);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-style:italic;
+    box-shadow:0 0 0 8px var(--cream);position:relative;z-index:1;flex-shrink:0;
+    transition:background .4s var(--ease), transform .4s var(--ease);
+  }
+  .step:hover .icon{background:var(--olive-700);transform:scale(1.06);}
+  .step h3{
+    font-family:'Jost',sans-serif;font-weight:600;font-size:0.88rem;
+    text-transform:uppercase;letter-spacing:0.1em;color:var(--olive-700);margin-bottom:8px;
+  }
+  .step p{font-size:1rem;line-height:1.75;color:var(--body);max-width:52ch;}
+  .step-body{padding-top:12px;}
+
+  /* ============================================================
+     GALERIA
+     ============================================================ */
+  .gallery-grid{
+    display:grid;grid-template-columns:1.15fr 1fr;
+    grid-template-rows:repeat(2, clamp(190px, 21vw, 260px));
+    gap:clamp(12px,1.4vw,18px);
+  }
+  .gallery-item{position:relative;overflow:hidden;border-radius:var(--r-sm);background:var(--sage-100);}
+  .gallery-item:first-child{grid-row:1 / 3;}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+  .gallery-item:hover img{transform:scale(1.06);}
+  .gallery-caption{
+    position:absolute;left:0;right:0;bottom:0;padding:22px;
+    background:linear-gradient(0deg, rgba(30,37,29,.8), rgba(30,37,29,.18) 60%, transparent);
+    color:#fff;
+  }
+  .gallery-caption strong{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;display:block;font-weight:500;}
+  .gallery-caption span{font-size:0.7rem;letter-spacing:0.1em;opacity:.82;}
+
+  /* ============================================================
+     DEPOIMENTO
+     ============================================================ */
+  .testimonial-wrap{background:var(--olive);padding-block:clamp(120px,14vw,150px) var(--sp-section);text-align:center;}
+  .testimonial-card{
+    max-width:600px;margin:0 auto;background:var(--white);border-radius:var(--r-lg);
+    padding:clamp(84px,10vw,96px) clamp(26px,4vw,48px) clamp(34px,4vw,46px);
+    position:relative;box-shadow:var(--sh-lg);
+  }
+  .testimonial-photo{
+    width:132px;height:132px;border-radius:50%;object-fit:cover;border:6px solid var(--white);
+    position:absolute;top:-66px;left:50%;transform:translateX(-50%);
+    box-shadow:0 12px 28px rgba(30,37,29,.22);
+  }
+  .hearts{margin-bottom:18px;color:var(--sage-400);font-size:1rem;letter-spacing:8px;}
+  .testimonial-card blockquote{color:var(--ink);font-size:clamp(1rem,1.5vw,1.08rem);line-height:1.85;font-weight:300;}
+  .testimonial-card blockquote b{font-weight:500;color:var(--olive-700);}
+  .testimonial-meta{margin-top:24px;font-size:0.76rem;letter-spacing:0.08em;color:var(--muted);}
+  .testimonial-name{
+    display:inline-block;margin-top:18px;padding:11px 30px;border-radius:var(--r-full);
+    background:var(--cream);color:var(--olive-700);border:1px solid var(--sage-200);
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.15rem;
+  }
+
+  /* ============================================================
+     CTA COM IMAGEM
+     ============================================================ */
+  .cta-image{
+    position:relative;min-height:clamp(380px,60vh,540px);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    background:#3a423a url('assets/img/quer-sentir.jpg') center 30% / cover no-repeat;
+    background-attachment:scroll;
+  }
+  .cta-image::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(30,37,29,.34), rgba(30,37,29,.52));
+  }
+  .cta-image-inner{position:relative;z-index:2;color:#fff;}
+  .cta-image h2{color:#fff;font-size:clamp(1.95rem,5vw,3.2rem);font-weight:400;margin-bottom:30px;}
+  .cta-image .credit{
+    position:absolute;bottom:16px;right:var(--gutter);font-size:0.68rem;
+    color:rgba(255,255,255,.72);z-index:2;
+  }
+
+  /* ============================================================
+     INVESTIMENTO
+     ============================================================ */
+  .invest-card{
+    display:grid;grid-template-columns:0.9fr 1.1fr;
+    border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-lg);background:var(--white);
+  }
+  .invest-photo{position:relative;min-height:100%;background:var(--sage-100);}
+  .invest-photo img{width:100%;height:100%;object-fit:cover;}
+  .invest-banner{background:var(--olive);color:#fff;padding:clamp(28px,3.4vw,40px) clamp(26px,3.4vw,44px);}
+  .invest-banner .eyebrow2{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,.82);}
+  .invest-banner h2{color:#fff;font-size:clamp(1.9rem,3.6vw,2.4rem);margin-top:8px;font-weight:500;}
+  .invest-body{background:var(--white);padding:clamp(28px,3.4vw,44px) clamp(26px,3.4vw,44px);}
+  .invest-body p{font-size:var(--fs-lead);line-height:1.85;color:var(--ink);margin-bottom:16px;}
+  .invest-body b{font-weight:500;color:var(--olive-700);}
+  .price-tag{
+    background:var(--cream);border:1px solid var(--sage-200);border-radius:var(--r-full);
+    padding:4px 14px;font-weight:500;color:var(--olive-700);display:inline-block;white-space:nowrap;
+  }
+  .invest-list{list-style:none;margin:18px 0 22px;}
+  .invest-list li{position:relative;padding-left:26px;margin-bottom:14px;font-size:0.99rem;line-height:1.75;color:var(--body);}
+  .invest-list li::before{content:'';position:absolute;left:0;top:.72em;width:14px;height:1px;background:var(--sage);}
+  .invest-note{font-size:0.8rem;color:var(--muted);font-style:italic;line-height:1.6;}
+  .invest-actions{margin-top:26px;}
+
+  /* ============================================================
+     CAFÉ
+     ============================================================ */
+  .cafe{display:grid;grid-template-columns:1fr 0.8fr;gap:clamp(36px,6vw,74px);align-items:center;}
+  .cafe-text > p{
+    font-size:clamp(1.05rem,1.6vw,1.15rem);line-height:1.9;color:var(--ink);
+    border-left:1px solid var(--sand);padding-left:clamp(22px,3vw,34px);max-width:48ch;
+  }
+  .cafe-text b{font-weight:500;color:var(--olive-700);}
+  .cafe-highlight{margin-top:32px;padding-left:clamp(22px,3vw,34px);}
+  .cafe-highlight .eyebrow{margin-bottom:10px;}
+  .cafe-highlight h2{font-size:clamp(1.8rem,3.6vw,2.4rem);margin-bottom:18px;}
+  .cafe-highlight p{font-size:1.02rem;line-height:1.8;max-width:44ch;}
+  .cafe-actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;}
+  .cafe-photo img{
+    border-radius:50%;width:min(340px,80vw);height:min(340px,80vw);object-fit:cover;
+    margin-inline:auto;box-shadow:var(--sh-lg);
+  }
+
+  /* ============================================================
+     FORMULÁRIO DE ORÇAMENTO
+     ============================================================ */
+  .orcamento-card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);
+    box-shadow:var(--sh-md);overflow:hidden;
+    display:grid;grid-template-columns:0.78fr 1.22fr;
+  }
+  .orcamento-aside{
+    background:var(--olive);color:#fff;
+    padding:clamp(32px,4vw,48px) clamp(26px,3vw,40px);
+    display:flex;flex-direction:column;gap:22px;
+  }
+  .orcamento-aside .eyebrow{color:rgba(255,255,255,.78);}
+  .orcamento-aside h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.2rem);font-weight:400;}
+  .orcamento-aside p{color:rgba(255,255,255,.9);font-size:0.98rem;line-height:1.8;}
+  .orcamento-points{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:auto;}
+  .orcamento-points li{
+    position:relative;padding-left:26px;font-size:0.9rem;line-height:1.6;color:rgba(255,255,255,.9);
+  }
+  .orcamento-points li::before{
+    content:'✦';position:absolute;left:0;top:0;color:var(--sage-200);font-size:0.72rem;line-height:1.9;
+  }
+  .orcamento-form{padding:clamp(28px,3.6vw,48px);}
+
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 22px;}
+  .field{display:flex;flex-direction:column;min-width:0;}
+  .field.full{grid-column:1 / -1;}
+  .field label{
+    font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;
+    color:var(--olive-600);margin-bottom:8px;
+  }
+  .field label .opt{text-transform:none;letter-spacing:0.02em;color:var(--muted);font-weight:300;}
+  .field input,
+  .field select,
+  .field textarea{
+    width:100%;font-family:'Jost',sans-serif;font-size:1rem;font-weight:300;
+    color:var(--ink);background:var(--ivory);
+    border:1px solid var(--line);border-radius:var(--r-sm);
+    padding:14px 16px;line-height:1.5;
+    transition:border-color .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+    -webkit-appearance:none;appearance:none;
+  }
+  .field textarea{resize:vertical;min-height:120px;}
+  .field select{
+    background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%237d8279' d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center;background-size:12px;
+    padding-right:44px;cursor:pointer;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder{color:#a8ada3;}
+  .field input:hover,
+  .field select:hover,
+  .field textarea:hover{border-color:var(--sage-200);}
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{
+    outline:none;background:var(--white);border-color:var(--olive);
+    box-shadow:0 0 0 3px rgba(108,121,107,.16);
+  }
+  .field .err{display:none;color:var(--danger);font-size:0.76rem;margin-top:7px;letter-spacing:0.01em;}
+  .field.is-error input,
+  .field.is-error select,
+  .field.is-error textarea{border-color:var(--danger);background:#fdf7f6;}
+  .field.is-error .err{display:block;}
+
+  .form-consent{
+    grid-column:1 / -1;display:flex;align-items:flex-start;gap:12px;
+    font-size:0.84rem;line-height:1.6;color:var(--muted);
+  }
+  .form-consent input[type="checkbox"]{
+    width:19px;height:19px;flex-shrink:0;margin-top:2px;accent-color:var(--olive);
+    -webkit-appearance:auto;appearance:auto;cursor:pointer;
+  }
+  .form-consent.is-error{color:var(--danger);}
+  .form-consent.is-error input[type="checkbox"]{outline:2px solid var(--danger);outline-offset:2px;border-radius:3px;}
+  .form-actions{grid-column:1 / -1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:4px;}
+  .form-hint{font-size:0.8rem;color:var(--muted);line-height:1.5;flex:1;min-width:190px;}
+
+  .form-success{
+    display:none;text-align:center;padding:clamp(30px,5vw,50px) 10px;
+  }
+  .form-success.is-visible{display:block;animation:fadeUp .6s var(--ease) both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .form-success .tick{
+    width:64px;height:64px;border-radius:50%;background:var(--cream);border:1px solid var(--sage-200);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:var(--olive);font-size:1.6rem;
+  }
+  .form-success h3{font-size:1.7rem;margin-bottom:12px;}
+  .form-success p{font-size:0.98rem;line-height:1.75;max-width:42ch;margin:0 auto 24px;}
+  form.is-sent{display:none;}
+
+  /* ============================================================
+     CONTATO
+     ============================================================ */
+  .contato{background:var(--olive-700);color:#fff;}
+  .contato .section-head h2{color:#fff;}
+  .contato .section-head .eyebrow{color:var(--sage-200);}
+  .contato .section-head .line{background:rgba(255,255,255,.45);}
+  .contato-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,22px);}
+  .contato-card{
+    background:var(--cream);border-radius:var(--r-sm);padding:clamp(24px,2.6vw,32px) clamp(20px,2.4vw,28px);
+    display:flex;align-items:center;gap:18px;min-width:0;
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .4s var(--ease);
+  }
+  .contato-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px -20px rgba(20,26,18,.6);background:var(--white);}
+  .contato-icon{
+    width:48px;height:48px;border-radius:50%;background:var(--olive);color:#fff;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    transition:background .4s var(--ease);
+  }
+  .contato-card:hover .contato-icon{background:var(--olive-700);}
+  .contato-icon svg{width:21px;height:21px;display:block;fill:#fff;}
+  .contato-info{min-width:0;flex:1;}
+  .contato-card h3{
+    font-family:'Jost',sans-serif;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+    font-size:0.7rem;color:var(--olive-600);margin-bottom:6px;
+  }
+  .contato-info span{
+    display:block;font-size:0.92rem;color:var(--ink);
+    overflow-wrap:anywhere;line-height:1.45;
+  }
+
+  /* ============================================================
+     RODAPÉ
+     ============================================================ */
+  footer{background:var(--olive-900);color:rgba(255,255,255,.72);padding:clamp(50px,7vw,68px) 0 28px;text-align:center;}
+  footer .foot-logo{display:flex;flex-direction:column;align-items:center;gap:13px;margin-bottom:28px;}
+  footer .foot-logo .logo-chip{width:66px;height:66px;padding:10px;}
+  footer .foot-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#fff;letter-spacing:0.04em;}
+  footer .foot-role{font-size:0.62rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--sage-400);}
+  footer .foot-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin-bottom:26px;font-size:0.79rem;}
+  footer .foot-links a{opacity:.82;transition:opacity .3s var(--ease), color .3s var(--ease);}
+  footer .foot-links a:hover{opacity:1;color:var(--sage-200);}
+  footer .foot-bottom{font-size:0.72rem;opacity:.55;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;line-height:1.6;}
+
+  /* ============================================================
+     WHATSAPP FLUTUANTE
+     ============================================================ */
+  .wa-float{
+    position:fixed;bottom:22px;right:22px;z-index:200;
+    width:56px;height:56px;border-radius:50%;background:#25a35a;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 28px rgba(20,26,18,.34);
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .wa-float:hover{transform:scale(1.08);box-shadow:0 16px 34px rgba(20,26,18,.42);}
+  .wa-float svg{width:27px;height:27px;fill:#fff;}
+
+  /* ============================================================
+     RESPONSIVO
+     ============================================================ */
+  /* ≤1024px — menu vira painel; nunca fica sem navegação */
+  @media (max-width:1024px){
+    :root{--header-h:76px;}
+    .burger{display:flex;}
+    nav{
+      position:absolute;top:100%;left:0;right:0;
+      background:rgba(252,251,248,.98);
+      -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+      box-shadow:0 18px 40px -18px rgba(47,58,45,.35);
+      display:grid;grid-template-rows:0fr;
+      transition:grid-template-rows .45s var(--ease), opacity .3s var(--ease), visibility .3s;
+      opacity:0;visibility:hidden;border-top:1px solid var(--line);
+    }
+    header.nav-open nav{grid-template-rows:1fr;opacity:1;visibility:visible;}
+    nav ul{
+      overflow:hidden;flex-direction:column;align-items:stretch;gap:0;
+      padding-inline:var(--gutter);max-height:min(70vh,520px);overflow-y:auto;
+    }
+    nav li + li{border-top:1px solid var(--line);}
+    header nav a, header.scrolled nav a{
+      display:block;padding:17px 0;color:var(--ink);font-size:0.82rem;letter-spacing:0.12em;
+    }
+    nav a::after{display:none;}
+    .nav-cta .btn{padding:11px 20px;}
+  }
+
+  /* ≤980px — colunas para pilha */
+  @media (max-width:980px){
+    .sobre, .quote-grid, .cafe, .invest-card, .orcamento-card{grid-template-columns:1fr;}
+    .sobre-photo{max-width:460px;margin-inline:auto;}
+    .quote-side{order:-1;}
+    .quote-side .section-head{text-align:left;margin-left:0;}
+    .quote-side .section-head .line{margin-left:0;}
+    .eventos-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+    .gallery-item{aspect-ratio:4 / 3;}
+    .gallery-item:first-child{grid-row:auto;grid-column:1 / 3;aspect-ratio:16 / 9;}
+    .contato-grid{grid-template-columns:1fr;}
+    .invest-photo{min-height:280px;}
+    .invest-photo img{max-height:420px;}
+    .orcamento-points{margin-top:8px;}
+    .cafe-photo{order:-1;}
+  }
+
+  /* ≤720px — telefone */
+  @media (max-width:720px){
+    :root{--fs-lead:1rem;}
+    .hero{background-position:center 26%;}
+    .hero-inner{padding-bottom:104px;}
+    .hero h1{max-width:16ch;}
+    .hero-actions{gap:10px;}
+    .hero-actions .btn{flex:1 1 100%;}
+    .eventos-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .gallery-item, .gallery-item:first-child{grid-column:auto;aspect-ratio:4 / 3;}
+    .steps::before{left:22px;}
+    .step{grid-template-columns:46px 1fr;gap:18px;}
+    .step .icon{width:46px;height:46px;font-size:1.2rem;box-shadow:0 0 0 6px var(--cream);}
+    .step-body{padding-top:8px;}
+    .form-grid{grid-template-columns:1fr;gap:18px;}
+    .form-actions{flex-direction:column;align-items:stretch;}
+    .form-actions .btn{width:100%;}
+    .form-hint{text-align:center;}
+    .testimonial-photo{width:112px;height:112px;top:-56px;}
+    .section-head.right{text-align:left;}
+    .section-head.right .line{margin-left:0;}
+    .cta-image .credit{right:auto;left:var(--gutter);font-size:0.64rem;}
+    .wa-float{width:52px;height:52px;bottom:18px;right:18px;}
+    .wa-float svg{width:25px;height:25px;}
+  }
+
+  /* ≤600px — barra superior compacta, sem colisão */
+  @media (max-width:600px){
+    :root{--header-h:68px;}
+    .logo-mark{gap:9px;}
+    .logo-chip{width:38px;height:38px;padding:6px;}
+    .logo-text{font-size:0.98rem;letter-spacing:0.02em;}
+    .logo-text span{font-size:0.46rem;letter-spacing:0.24em;}
+    .nav-cta{gap:6px;}
+    .nav-cta .btn{padding:9px 14px;font-size:0.6rem;letter-spacing:0.08em;}
+    .burger{width:38px;height:38px;}
+    .burger span{width:21px;}
+  }
+
+  /* ≤400px — telas estreitas */
+  @media (max-width:400px){
+    .logo-text{font-size:0.9rem;}
+    .logo-text span{font-size:0.42rem;letter-spacing:0.2em;}
+    .nav-cta .btn{padding:9px 12px;font-size:0.56rem;}
+    .quote-mark{font-size:4.4rem;}
+    .testimonial-name{font-size:1.05rem;padding:10px 22px;}
+  }
+
+  /* dispositivos sem hover: sem efeitos presos no toque */
+  @media (hover:none){
+    .evento-card:hover, .contato-card:hover, .btn:hover{transform:none;}
+    .gallery-item:hover img{transform:none;}
+  }
+
+  /* respeita preferência por menos movimento */
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{
+      animation-duration:.01ms!important;animation-iteration-count:1!important;
+      transition-duration:.01ms!important;scroll-behavior:auto!important;
+    }
+    .js .reveal{opacity:1;transform:none;}
+  }
+
+  /* impressão */
+  @media print{
+    header,.wa-float,.scroll-cue,.skip-link{display:none!important;}
+    body{color:#000;}
+    section{padding-block:24px;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header id="site-header">
+  <div class="container">
+    <a href="#top" class="logo-mark" aria-label="Fernanda Jardim, celebrante — início">
+      <span class="logo-chip"><img src="assets/img/logo-mark.png" alt="" width="380" height="338"></span>
+      <span class="logo-text">Fernanda Jardim<span>Celebrante</span></span>
+    </a>
+    <nav id="main-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#passo-a-passo">Como funciona</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#investimento">Investimento</a></li>
+        <li><a href="#orcamento">Orçamento</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-sage" href="#orcamento">Orçamento</a>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <p class="hero-eyebrow">@fernandajardim.celebrante</p>
+    <h1>Sua história<br><em>é única</em></h1>
+    <div class="hero-divider" aria-hidden="true"></div>
+    <p class="hero-handle">Cerimônias escritas e narradas para tornar seu momento inesquecível</p>
+    <div class="hero-actions">
+      <a class="btn btn-light" href="#orcamento">Solicitar orçamento</a>
+      <a class="btn btn-outline" href="#sobre">Conheça meu trabalho</a>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span>Role</span><span class="line"></span></div>
+</section>
+
+<section class="section-cream" id="sobre">
+  <div class="container sobre">
+    <div class="sobre-photo reveal">
+      <img src="assets/img/fernanda-mic.jpg" alt="Fernanda Jardim celebrando uma cerimônia ao microfone" width="1000" height="1500" loading="lazy">
+    </div>
+    <div class="reveal">
+      <p class="sobre-eyebrow">Muito prazer,</p>
+      <h2><em>Fernanda Jardim</em></h2>
+      <p>Formada em Língua e Literatura Portuguesa e Doutora em Linguística, amo poder escolher cada palavra que irá compor o texto da sua cerimônia, a fim de criar memórias inesquecíveis em você e em seus convidados.</p>
+      <p class="signature">Fernanda Jardim</p>
+    </div>
+  </div>
+</section>
+
+<section id="eventos">
+  <div class="container">
+    <div class="section-head right reveal">
+      <div class="line"></div>
+      <span class="eyebrow">Especialidades</span>
+      <h2>Eventos <em>para você</em></h2>
+    </div>
+    <div class="eventos-grid reveal">
+      <article class="evento-card c1">
+        <span class="num">01</span>
+        <h3>Casamento</h3>
+        <p>Minha participação é atuar do início ao fim da cerimônia, dando boas-vindas, narrando palavras de afeto, escritas por mim, com detalhes de sua história, o que resultará em um texto único, leve e exclusivamente seu.</p>
+      </article>
+      <article class="evento-card c2">
+        <span class="num">02</span>
+        <h3>Formatura</h3>
+        <p>Como dirigente do evento, direcionarei as mais belas palavras àqueles que dedicaram anos a fio de sua vida à produção de trabalhos acadêmicos, os quais não foram poucos, tampouco simples.</p>
+      </article>
+      <article class="evento-card c3">
+        <span class="num">03</span>
+        <h3>Congresso</h3>
+        <p>Minha longa formação acadêmica me possibilita atuar em congressos, simpósios, conferências e encontros de toda a ordem, na apresentação de propósitos do evento, bem como no prosseguimento deste.</p>
+      </article>
+      <article class="evento-card c4">
+        <span class="num">04</span>
+        <h3>Homenagem</h3>
+        <p>Atuo também em quaisquer eventos que requeiram uma homenagem, seja de nascimento, aniversário ou mesmo cerimônia fúnebre.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section section-cream">
+  <div class="container quote-grid">
+    <div class="reveal">
+      <span class="quote-mark" aria-hidden="true">&#8220;</span>
+      <p class="quote-text">Poder <b>escrever</b>, <b>narrar</b> e <b>interpretar</b> sua história com as pessoas que você ama é, para mim, fazer das <b>palavras</b> uma ferramenta de <b>conexão</b> e de <b>afeto</b> — significa tornar você <b>protagonista</b> de uma narrativa exclusiva. A <b>sua</b> história é o que hoje me faz celebrar.</p>
+    </div>
+    <div class="quote-side reveal">
+      <div class="section-head right">
+        <div class="line"></div>
+        <h2>Personalize<br><em>sua cerimônia</em></h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="passo-a-passo">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="line"></div>
+      <span class="eyebrow">Processo</span>
+      <h2>Passo <em>a passo</em></h2>
+    </div>
+    <ol class="steps reveal">
+      <li class="step">
+        <span class="icon" aria-hidden="true">1</span>
+        <div class="step-body"><h3>Apresentação</h3><p>Primeiro contato e tira-dúvidas sobre o trabalho.</p></div>
+      </li>
+      <li class="step">
+        <span class="icon" aria-hidden="true">2</span>
+        <div class="step-body"><h3>Entrevista escrita</h3><p>O casal responde o questionário individualmente sobre sua história.</p></div>
+      </li>
+      <li class="step">
+        <span class="icon" aria-hidden="true">3</span>
+        <div class="step-body"><h3>Mais um encontro</h3><p>Conversa sobre a história do casal e o roteiro da cerimônia — o ideal é que seja presencial.</p></div>
+      </li>
+      <li class="step">
+        <span class="icon" aria-hidden="true">4</span>
+        <div class="step-body"><h3>Produção da narrativa</h3><p>Escrita da história do casal, que será única e personalizada.</p></div>
+      </li>
+      <li class="step">
+        <span class="icon" aria-hidden="true">5</span>
+        <div class="step-body"><h3>Últimos ajustes</h3><p>Revisão textual, apoio nos votos e alinhamento com o cerimonial do evento.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section-cream" id="galeria">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="line"></div>
+      <span class="eyebrow">Momentos</span>
+      <h2>Histórias que <em>já celebrei</em></h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <figure class="gallery-item">
+        <img src="assets/img/gallery-1.jpg" alt="Casamento de Paula e Abner" width="1200" height="800" loading="lazy">
+        <figcaption class="gallery-caption"><strong>Paula &amp; Abner</strong><span>@mayckonfotosoficial</span></figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/img/gallery-2.jpg" alt="Casamento de Gabriela e Matheus" width="900" height="1348" loading="lazy">
+        <figcaption class="gallery-caption"><strong>Gabriela &amp; Matheus</strong><span>@diegocamposfoto</span></figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/img/gallery-3.jpg" alt="Casamento de Carol e Matheus" width="900" height="600" loading="lazy">
+        <figcaption class="gallery-caption"><strong>Carol &amp; Matheus</strong><span>@matheusmachadofotos</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-wrap">
+  <div class="container">
+    <figure class="testimonial-card reveal">
+      <img class="testimonial-photo" src="assets/img/testimonial-larissa.jpg" alt="Larissa e Jonathan no dia do casamento" width="700" height="1050" loading="lazy">
+      <div class="hearts" aria-hidden="true">&#9829; &#9829; &#9829;</div>
+      <blockquote>Fernanda, <b>juro</b> que não consigo achar palavras para descrever o que sentimos. Você é uma pessoa maravilhosa, abençoada. A gente <b>chorou</b> muito, mas <b>rimos</b> na mesma proporção de tanta <b>felicidade</b> e por <b>cada palavra</b>. A cerimônia é a parte <b>mais especial</b> e aguardada, tanto para os noivos, quanto para os convidados, e eu <b>jamais</b> imaginaria ser <b>tão linda</b> assim. <b>Nunca</b> iremos esquecer. Obrigada novamente.</blockquote>
+      <figcaption>
+        <p class="testimonial-meta">Depoimento da noiva, 2023</p>
+        <p class="testimonial-name">Larissa &amp; Jonathan</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="cta-image">
+  <div class="container cta-image-inner reveal">
+    <h2>Quer sentir<br><em>isso também?</em></h2>
+    <a class="btn btn-light" href="#orcamento">Vamos marcar uma conversa</a>
+  </div>
+  <p class="credit">Vanessa &amp; Diego · @schmittfotografia</p>
+</section>
+
+<section class="section-cream" id="investimento">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="line"></div>
+      <span class="eyebrow">Proposta</span>
+      <h2>Investimento <em>na celebração</em></h2>
+    </div>
+    <div class="invest-card reveal">
+      <div class="invest-photo">
+        <img src="assets/img/investimento-couple.jpg" alt="Amanda e Matheus no dia do casamento" width="1000" height="667" loading="lazy">
+      </div>
+      <div>
+        <div class="invest-banner">
+          <p class="eyebrow2">A partir de</p>
+          <h2>R$ 2.100,00*</h2>
+        </div>
+        <div class="invest-body">
+          <p>Tenha uma cerimônia totalmente <b>personalizada</b> por <span class="price-tag">R$ 2.100,00*</span>. Você pode escolher:</p>
+          <ul class="invest-list">
+            <li>Pagar <b>à vista</b>, na assinatura do contrato, com desconto de <b>10%</b> — R$ 1.890,00, ou</li>
+            <li>Pagar o valor <b>integral</b>: 20% do valor na assinatura do contrato e o restante até o dia anterior ao evento.</li>
+          </ul>
+          <p class="invest-note">*Pode ser acrescido no total o valor de deslocamento, a depender da região.</p>
+          <div class="invest-actions">
+            <a class="btn btn-sage" href="#orcamento">Solicitar meu orçamento</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container cafe">
+    <div class="cafe-text reveal">
+      <p>Se você está em <b>Santa Catarina</b> — ou arredores — e deseja uma cerimônia única e personalizada, que conte sua história e conecte de forma genuína as pessoas que você ama,</p>
+      <div class="cafe-highlight">
+        <span class="eyebrow">Convite</span>
+        <h2>Que tal <em>um café?</em></h2>
+        <p>Marque um encontro — presencial ou virtual — sem compromisso, e vamos conversar!</p>
+        <div class="cafe-actions">
+          <a class="btn btn-sage" href="#orcamento">Pedir orçamento</a>
+          <a class="btn btn-ghost" href="https://wa.me/5548999766610" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="cafe-photo reveal">
+      <img src="assets/img/cafe.jpg" alt="Café servido para uma conversa sobre a cerimônia" width="700" height="933" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section-cream" id="orcamento">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="line"></div>
+      <span class="eyebrow">Primeiro passo</span>
+      <h2>Solicite seu <em>orçamento</em></h2>
+    </div>
+
+    <div class="orcamento-card reveal">
+      <aside class="orcamento-aside">
+        <span class="eyebrow">Sem compromisso</span>
+        <h2>Conte-me sobre<br><em>o seu dia</em></h2>
+        <p>Preencha os campos ao lado com alguns detalhes do evento. Envio a proposta personalizada e as próximas datas disponíveis o quanto antes.</p>
+        <ul class="orcamento-points">
+          <li>Resposta em até 48&nbsp;horas</li>
+          <li>Proposta feita sob medida para a sua cerimônia</li>
+          <li>Atendimento em Santa Catarina e região</li>
+        </ul>
+      </aside>
+
+      <div class="orcamento-form">
+        <form id="form-orcamento" novalidate>
+          <div class="form-grid">
+            <div class="field full">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Como devo te chamar?" required>
+              <span class="err" data-err>Por favor, informe seu nome.</span>
+            </div>
+
+            <div class="field">
+              <label for="telefone">WhatsApp</label>
+              <input type="tel" id="telefone" name="telefone" inputmode="tel" autocomplete="tel" placeholder="(48) 9 9999-9999" required>
+              <span class="err" data-err>Informe um telefone com DDD.</span>
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail <span class="opt">(opcional)</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="seuemail@exemplo.com">
+              <span class="err" data-err>Verifique o e-mail digitado.</span>
+            </div>
+
+            <div class="field">
+              <label for="tipo">Tipo de evento</label>
+              <select id="tipo" name="tipo" required>
+                <option value="" selected disabled>Selecione</option>
+                <option>Casamento</option>
+                <option>Formatura</option>
+                <option>Congresso ou evento acadêmico</option>
+                <option>Homenagem</option>
+                <option>Outro</option>
+              </select>
+              <span class="err" data-err>Escolha o tipo de evento.</span>
+            </div>
+
+            <div class="field">
+              <label for="data">Data do evento <span class="opt">(se já tiver)</span></label>
+              <input type="date" id="data" name="data">
+              <span class="err" data-err>Data inválida.</span>
+            </div>
+
+            <div class="field">
+              <label for="cidade">Cidade / local</label>
+              <input type="text" id="cidade" name="cidade" placeholder="Ex.: Florianópolis — SC" required>
+              <span class="err" data-err>Informe a cidade do evento.</span>
+            </div>
+
+            <div class="field">
+              <label for="convidados">Convidados <span class="opt">(aprox.)</span></label>
+              <input type="number" id="convidados" name="convidados" min="1" max="5000" inputmode="numeric" placeholder="Ex.: 120">
+              <span class="err" data-err>Informe um número válido.</span>
+            </div>
+
+            <div class="field full">
+              <label for="mensagem">Conte um pouco da sua história <span class="opt">(opcional)</span></label>
+              <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como se conheceram, o clima que imaginam para a cerimônia, o que não pode faltar…"></textarea>
+            </div>
+
+            <label class="form-consent" for="consent">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span>Autorizo o contato pelos dados informados para receber a proposta.</span>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-sage">Enviar pelo WhatsApp</button>
+              <p class="form-hint">O resumo é aberto no WhatsApp já preenchido — é só tocar em enviar. Prefere e-mail? <a href="mailto:fernandajardim.celebrante@gmail.com" style="color:var(--olive-700);text-decoration:underline;">Escreva aqui</a>.</p>
+            </div>
+          </div>
+        </form>
+
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
+          <div class="tick" aria-hidden="true">✦</div>
+          <h3>Pedido a caminho!</h3>
+          <p>Seu resumo foi aberto no WhatsApp. Se a janela não abriu, toque no botão abaixo para falar comigo diretamente.</p>
+          <a class="btn btn-sage" id="wa-fallback" href="https://wa.me/5548999766610" target="_blank" rel="noopener">Abrir conversa no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="line"></div>
+      <span class="eyebrow">Vamos conversar</span>
+      <h2>Fale <em>comigo</em></h2>
+    </div>
+    <div class="contato-grid reveal">
+      <a class="contato-card" href="https://www.instagram.com/fernandajardim.celebrante" target="_blank" rel="noopener">
+        <div class="contato-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </div>
+        <div class="contato-info"><h3>Instagram</h3><span>@fernandajardim.celebrante</span></div>
+      </a>
+      <a class="contato-card" href="https://wa.me/5548999766610" target="_blank" rel="noopener">
+        <div class="contato-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488z"/></svg>
+        </div>
+        <div class="contato-info"><h3>WhatsApp</h3><span>(48) 9 9976-6610</span></div>
+      </a>
+      <a class="contato-card" href="mailto:fernandajardim.celebrante@gmail.com">
+        <div class="contato-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div class="contato-info"><h3>E-mail</h3><span>fernandajardim.celebrante<wbr>@gmail.com</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-logo">
+      <span class="logo-chip"><img src="assets/img/logo-mark.png" alt="" width="380" height="338" loading="lazy"></span>
+      <p class="foot-name">Fernanda Jardim</p>
+      <p class="foot-role">Celebrante</p>
+    </div>
+    <nav class="foot-links" aria-label="Links do rodapé">
+      <a href="#sobre">Sobre</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#investimento">Investimento</a>
+      <a href="#orcamento">Orçamento</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <p class="foot-bottom">© <span id="year"></span> Fernanda Jardim Celebrante — Santa Catarina, Brasil</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5548999766610" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.488z"/></svg>
+</a>
+
+<script>
+(function(){
+  'use strict';
+
+  var WHATSAPP = '5548999766610';
+
+  /* ---------- ano no rodapé ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- header ao rolar ---------- */
+  var header = document.getElementById('site-header');
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      header.classList.toggle('scrolled', window.scrollY > 60);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- menu mobile ---------- */
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('main-nav');
+
+  function setMenu(open){
+    header.classList.toggle('nav-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  }
+  burger.addEventListener('click', function(){
+    setMenu(!header.classList.contains('nav-open'));
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && header.classList.contains('nav-open')){
+      setMenu(false);
+      burger.focus();
+    }
+  });
+  document.addEventListener('click', function(e){
+    if(header.classList.contains('nav-open') && !header.contains(e.target)) setMenu(false);
+  });
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 1024) setMenu(false);
+  });
+
+  /* ---------- revelação ao rolar ---------- */
+  var revealables = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    revealables.forEach(function(el){ io.observe(el); });
+  }else{
+    revealables.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---------- formulário de orçamento ---------- */
+  var form = document.getElementById('form-orcamento');
+  var success = document.getElementById('form-success');
+
+  function fieldOf(el){ return el.closest('.field') || el.closest('.form-consent'); }
+
+  function validate(el){
+    var ok = el.checkValidity();
+    if(el.id === 'telefone'){
+      var digits = (el.value || '').replace(/\D/g,'');
+      ok = ok && digits.length >= 10;
+    }
+    var wrap = fieldOf(el);
+    if(wrap) wrap.classList.toggle('is-error', !ok);
+    el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+    return ok;
+  }
+
+  /* máscara leve de telefone brasileiro */
+  var tel = document.getElementById('telefone');
+  tel.addEventListener('input', function(){
+    var d = tel.value.replace(/\D/g,'').slice(0,11);
+    var out = d;
+    if(d.length > 2) out = '(' + d.slice(0,2) + ') ' + d.slice(2);
+    if(d.length > 7){
+      var rest = d.slice(2);
+      var split = rest.length > 8 ? 5 : 4;
+      out = '(' + d.slice(0,2) + ') ' + rest.slice(0,split) + '-' + rest.slice(split);
+    }
+    tel.value = out;
+  });
+
+  Array.prototype.forEach.call(form.elements, function(el){
+    if(!el.name) return;
+    el.addEventListener('blur', function(){ validate(el); });
+    el.addEventListener('input', function(){
+      var wrap = fieldOf(el);
+      if(wrap && wrap.classList.contains('is-error')) validate(el);
+    });
+    el.addEventListener('change', function(){ validate(el); });
+  });
+
+  function formatDate(value){
+    if(!value) return '';
+    var parts = value.split('-');
+    if(parts.length !== 3) return value;
+    return parts[2] + '/' + parts[1] + '/' + parts[0];
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var required = ['nome','telefone','tipo','cidade','consent'];
+    var firstInvalid = null;
+    required.forEach(function(id){
+      var el = document.getElementById(id);
+      if(!validate(el) && !firstInvalid) firstInvalid = el;
+    });
+    var email = document.getElementById('email');
+    if(email.value && !validate(email) && !firstInvalid) firstInvalid = email;
+
+    if(firstInvalid){
+      firstInvalid.focus({preventScroll:true});
+      firstInvalid.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    var get = function(id){ return (document.getElementById(id).value || '').trim(); };
+    var linhas = [
+      'Olá, Fernanda! Gostaria de solicitar um orçamento. ✦',
+      '',
+      '*Nome:* ' + get('nome'),
+      '*WhatsApp:* ' + get('telefone')
+    ];
+    if(get('email')) linhas.push('*E-mail:* ' + get('email'));
+    linhas.push('*Tipo de evento:* ' + get('tipo'));
+    if(get('data')) linhas.push('*Data:* ' + formatDate(get('data')));
+    linhas.push('*Cidade / local:* ' + get('cidade'));
+    if(get('convidados')) linhas.push('*Convidados:* ' + get('convidados'));
+    if(get('mensagem')) linhas.push('', '*Nossa história:*', get('mensagem'));
+
+    var texto = encodeURIComponent(linhas.join('\n'));
+    var url = 'https://wa.me/' + WHATSAPP + '?text=' + texto;
+
+    document.getElementById('wa-fallback').href = url;
+    window.open(url, '_blank', 'noopener');
+
+    form.classList.add('is-sent');
+    success.classList.add('is-visible');
+    success.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 .DS_Store
 .vercel
+assets/_originais/
 node_modules/
 _preview*.html
 _probe.html

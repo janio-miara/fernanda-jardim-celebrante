@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://fernandacelebrante.com.br/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://fernandacelebrante.com.br/assets/img/hero-couple.jpg</image:loc>
+      <image:title>Cerimônia de casamento celebrada por Fernanda Jardim</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://fernandacelebrante.com.br/assets/img/fernanda-mic.jpg</image:loc>
+      <image:title>Fernanda Jardim, celebrante de casamentos em Santa Catarina</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://fernandacelebrante.com.br/assets/img/gallery-1.jpg</image:loc>
+      <image:title>Casamento de Paula e Abner</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://fernandacelebrante.com.br/assets/img/gallery-2.jpg</image:loc>
+      <image:title>Casamento de Gabriela e Matheus</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://fernandacelebrante.com.br/assets/img/gallery-3.jpg</image:loc>
+      <image:title>Casamento de Carol e Matheus</image:title>
+    </image:image>
+  </url>
+</urlset>

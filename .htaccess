@@ -1,0 +1,80 @@
+# ============================================================
+#  Fernanda Jardim Celebrante — configuração do servidor
+#  Hostinger (Apache / LiteSpeed)
+#  Se o domínio mudar, atualize os dois RewriteRule abaixo.
+# ============================================================
+
+DirectoryIndex index.html
+Options -Indexes
+
+# ------------------------------------------------------------
+#  Um único endereço oficial: https, sem www
+#  Precisa bater com o <link rel="canonical"> do index.html,
+#  senão o Google enxerga dois sites com o mesmo conteúdo.
+# ------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # força HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://fernandacelebrante.com.br%{REQUEST_URI} [L,R=301]
+
+  # www → sem www
+  RewriteCond %{HTTP_HOST} ^www\.fernandacelebrante\.com\.br$ [NC]
+  RewriteRule ^ https://fernandacelebrante.com.br%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ------------------------------------------------------------
+#  Compressão — reduz bastante o HTML, que aqui é grande
+# ------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE application/xml image/svg+xml
+</IfModule>
+
+# ------------------------------------------------------------
+#  Cache do navegador
+#  Imagens e vídeo por 1 ano; o HTML nunca, para que uma
+#  atualização do site apareça na hora.
+# ------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType video/mp4               "access plus 1 year"
+  ExpiresByType text/css                "access plus 1 month"
+  ExpiresByType application/javascript  "access plus 1 month"
+  ExpiresByType text/html               "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpg|jpeg|png|webp|svg|mp4|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ------------------------------------------------------------
+#  Tipos de arquivo (garantia — alguns servidores não trazem)
+# ------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType video/mp4   .mp4
+  AddType image/webp  .webp
+  AddType image/svg+xml .svg
+</IfModule>
+
+# ------------------------------------------------------------
+#  Não servir arquivos internos do projeto
+# ------------------------------------------------------------
+<FilesMatch "^(\.gitignore|README\.md|vercel\.json|\.htaccess)$">
+  Require all denied
+</FilesMatch>

@@ -5,3 +5,4 @@ node_modules/
 _preview*.html
 _probe.html
 _frame*.html
+*.zip
